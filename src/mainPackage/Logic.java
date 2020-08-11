@@ -91,4 +91,123 @@ public class Logic extends TicTacToe {
     public boolean getCloseGame(){
         return this.closeGame;
     }
+
+    //AILogic
+        public void blockWinForPlayer(Player player,AiPlayer ai){
+        /*    if((this.position[0]=="X" && this.position[1]=="X" && this.position[2]==" ") ||
+                    (this.position[0]=="X" && this.position[2]=="X" && this.position[1]==" ")||
+                    (this.position[1]=="X" && this.position[2]=="X" && this.position[0]==" ") ||
+                    (this.position[3]=="X" && this.position[4]=="X" && this.position[5]==" ")||
+                    (this.position[4]=="X" && this.position[5]=="X" && this.position[3]==" ") ||
+                    (this.position[3]=="X" && this.position[5]=="X" && this.position[4]==" ") || 6
+                    (this.position[6]=="X" && this.position[7]=="X" && this.position[8]==" ") ||
+                    (this.position[7]=="X" && this.position[8]=="X" && this.position[6]==" ") ||
+                    (this.position[6]=="X" && this.position[8]=="X" && this.position[7]==" ") ) { //IF body
+                System.out.println("No win for you");
+            }
+          */
+
+            //ON X
+            if(this.position[0]=="X" && this.position[1]=="X" && this.position[2]==" "){
+                ai.setPosition(2);
+                setPosition(ai.getPosition(),ai);
+
+            }else if(this.position[0]=="X" && this.position[2]=="X" && this.position[1]==" "){
+                ai.setPosition(1);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[1]=="X" && this.position[2]=="X" && this.position[0]==" "){
+                ai.setPosition(0);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[3]=="X" && this.position[4]=="X" && this.position[5]==" "){
+                ai.setPosition(5);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[4]=="X" && this.position[5]=="X" && this.position[3]==" "){
+                ai.setPosition(3);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[3]=="X" && this.position[5]=="X" && this.position[4]==" "){
+                ai.setPosition(4);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[6]=="X" && this.position[7]=="X" && this.position[8]==" "){
+                ai.setPosition(8);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[7]=="X" && this.position[8]=="X" && this.position[6]==" "){
+                ai.setPosition(6);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[6]=="X" && this.position[8]=="X" && this.position[7]==" "){
+                ai.setPosition(7);
+                setPosition(ai.getPosition(),ai);
+            }
+            //END
+            //ON Y
+            else if(this.position[0]=="X" && this.position[3]=="X" && this.position[6]==" "){
+                ai.setPosition(6);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[3]=="X" && this.position[6]=="X" && this.position[0]==" "){
+                ai.setPosition(0);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[0]=="X" && this.position[6]=="X" && this.position[3]==" "){
+                ai.setPosition(3);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[1]=="X" && this.position[4]=="X" && this.position[7]==" "){
+                ai.setPosition(7);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[4]=="X" && this.position[7]=="X" && this.position[1]==" "){
+                ai.setPosition(1);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[1]=="X" && this.position[7]=="X" && this.position[4]==" "){
+                ai.setPosition(4);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[0]=="X" && this.position[6]=="X" && this.position[3]==" "){
+                ai.setPosition(3);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[1]=="X" && this.position[7]=="X" && this.position[4]==" "){
+                ai.setPosition(4);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[2]=="X" && this.position[8]=="X" && this.position[5]==" "){
+                ai.setPosition(5);
+                setPosition(ai.getPosition(),ai);
+            }
+            //END
+            //DIAGONAL
+            else if(this.position[0]=="X" && this.position[4]=="X" && this.position[8]==" "){
+                ai.setPosition(8);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[0]=="X" && this.position[8]=="X" && this.position[4]==" "){
+                ai.setPosition(4);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[4]=="X" && this.position[8]=="X" && this.position[0]==" "){
+                ai.setPosition(0);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[2]=="X" && this.position[4]=="X" && this.position[6]==" "){
+                ai.setPosition(6);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[4]=="X" && this.position[6]=="X" && this.position[2]==" "){
+                ai.setPosition(2);
+                setPosition(ai.getPosition(),ai);
+            }else if(this.position[2]=="X" && this.position[6]=="X" && this.position[4]==" "){
+                ai.setPosition(4);
+                setPosition(ai.getPosition(),ai);
+            }else if(fillEmptyLastSpace()!=0){
+                ai.setPosition(fillEmptyLastSpace());
+                setPosition(ai.getPosition(),ai);
+            }
+            //END
+        }
+    //
+
+    private int fillEmptyLastSpace(){
+        int temp=0;
+        int tempLastSpace=0;
+        //int returnValue=0;
+        for(int i = 0 ; i < this.position.length;i++){
+            if(this.position[i]==""){
+                temp++;
+                tempLastSpace=i;
+            }
+        }
+        if(temp==1){
+             return tempLastSpace;
+        }
+        return 0;
+    }
 }

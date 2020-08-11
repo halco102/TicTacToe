@@ -1,7 +1,7 @@
 package mainPackage;
 
 public class Player {
-        private int position;
+        protected int position;
         private String name="";
         protected String character="";
 
