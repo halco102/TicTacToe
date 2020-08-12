@@ -1,4 +1,4 @@
-package mainPackage;
+package mainPackage.player;
 
 public class Player {
         protected int position;

@@ -1,6 +1,8 @@
 package mainPackage;
 
-public class AILogic extends Logic{
+import mainPackage.tictactoe.Logic;
+
+public class AILogic extends Logic {
 
 
 

@@ -1,10 +1,10 @@
-package mainPackage;
+package mainPackage.player;
 
-public class Player1 extends Player{
-    private final String name = "Player1";
-    private final String player1Character = "X";
+import mainPackage.player.Player;
 
-
+public class Player2 extends Player {
+    private final String name="Player2";
+    private final String player2Character = "O";
 
     @Override
     public String getName(){
@@ -21,7 +21,7 @@ public class Player1 extends Player{
     }
 
     public String getPlayerCharacter(){
-        return this.player1Character;
+        return this.player2Character;
     }
 
 }

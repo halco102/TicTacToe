@@ -1,8 +1,12 @@
-package mainPackage;
+package mainPackage.player;
 
-public class Player2 extends Player {
-    private final String name="Player2";
-    private final String player2Character = "O";
+import mainPackage.player.Player;
+
+public class Player1 extends Player {
+    private final String name = "Player1";
+    private final String player1Character = "X";
+
+
 
     @Override
     public String getName(){
@@ -19,7 +23,7 @@ public class Player2 extends Player {
     }
 
     public String getPlayerCharacter(){
-        return this.player2Character;
+        return this.player1Character;
     }
 
 }

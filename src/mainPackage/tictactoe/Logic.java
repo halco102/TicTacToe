@@ -1,6 +1,7 @@
-package mainPackage;
+package mainPackage.tictactoe;
 
-import java.util.concurrent.atomic.AtomicBoolean;
+import mainPackage.player.AiPlayer;
+import mainPackage.player.Player;
 
 public class Logic extends TicTacToe {
 
@@ -96,7 +97,7 @@ public class Logic extends TicTacToe {
     }
 
     //AILogic
-        public void blockWinForPlayer(Player player,AiPlayer ai){
+        public void blockWinForPlayer(Player player, AiPlayer ai){
         /*    if((this.position[0]=="X" && this.position[1]=="X" && this.position[2]==" ") ||
                     (this.position[0]=="X" && this.position[2]=="X" && this.position[1]==" ")||
                     (this.position[1]=="X" && this.position[2]=="X" && this.position[0]==" ") ||
@@ -197,7 +198,7 @@ public class Logic extends TicTacToe {
                // ai.setPosition(fillEmptyLastSpace());
                 //setPosition(ai.getPosition(),ai);
                 //}
-            else{
+            else if (fillEmptyLastSpace()==0){
                 do{
                 ai.setPosition(ai.setPositionFirstTime());
                 setPosition(ai.getPosition(),ai);

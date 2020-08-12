@@ -1,8 +1,10 @@
-package mainPackage;
+package mainPackage.player;
+
+import mainPackage.player.Player;
 
 import java.util.Random;
 
-public class AiPlayer extends Player{
+public class AiPlayer extends Player {
     private final String name = "Computer";
     private final String Computer = "O";
     private boolean isFirstTime=true;

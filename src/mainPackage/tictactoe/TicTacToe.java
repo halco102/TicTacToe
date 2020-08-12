@@ -1,7 +1,7 @@
-package mainPackage;
+package mainPackage.tictactoe;
 
 
-
+import mainPackage.player.Player;
 
 public class TicTacToe {
     protected String position[] = new String[9];

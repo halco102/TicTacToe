@@ -1,12 +1,20 @@
 package mainPackage;
 
+import mainPackage.player.Player;
+import mainPackage.player.Player1;
+import mainPackage.player.Player2;
+import mainPackage.player.AiPlayer;
+import mainPackage.tictactoe.Logic;
+import mainPackage.tictactoe.TicTacToe;
+
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
 public class mainClass {
 
 
-public static void inGamePlayer1(Player p1,Logic logic){
+public static void inGamePlayer1(Player p1, Logic logic){
     do{
         System.out.println(p1.getName());
         int input;
@@ -40,10 +48,12 @@ public static void inGamePlayer1(Player p1,Logic logic){
     }
 
 
-    public static void inGameAi(AiPlayer aiPlayer,Logic logic,Player p1){
+    public static void inGameAi(AiPlayer aiPlayer, Logic logic, Player p1) throws InterruptedException {
     //do{
 
         System.out.println(aiPlayer.getName());
+        System.out.println("The computer is playing ....");
+        TimeUnit.SECONDS.sleep(2);
         if(aiPlayer.getIsFirstTime()==true && logic.getIsOpen()==true ){
             aiPlayer.setPosition(aiPlayer.setPositionFirstTime());
             logic.setPosition(aiPlayer.getPosition(), aiPlayer);
@@ -53,14 +63,12 @@ public static void inGamePlayer1(Player p1,Logic logic){
             logic.display();
         }
 
-    System.out.println("The computer is playing ....");
-
    // }while (l.getIsOpen()!=true);
 
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
         char ch = 'Y';
         int gameMode;
         Scanner in = new Scanner(System.in);
