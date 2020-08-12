@@ -1,5 +1,7 @@
 package mainPackage;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class Logic extends TicTacToe {
 
     private boolean isOpen;
@@ -26,8 +28,9 @@ public class Logic extends TicTacToe {
               if (getIsOpen() == true) {
                   this.position[position] = player.getCharacter();
 
-              }else
-                System.out.println("Its filled already");
+              }else {
+                  System.out.println("Its filled already position : " + position);
+                    }
                 }
 
           }
@@ -106,15 +109,18 @@ public class Logic extends TicTacToe {
                 System.out.println("No win for you");
             }
           */
+            boolean closed=false;
 
             //ON X
-            if(this.position[0]=="X" && this.position[1]=="X" && this.position[2]==" "){
+            if(this.position[0]=="X" && this.position[1]=="X" && this.position[2]==" "&& closed==false){
                 ai.setPosition(2);
                 setPosition(ai.getPosition(),ai);
+                closed=true;
 
-            }else if(this.position[0]=="X" && this.position[2]=="X" && this.position[1]==" "){
+            }else if(this.position[0]=="X" && this.position[2]=="X" && this.position[1]==" " && closed==false){
                 ai.setPosition(1);
                 setPosition(ai.getPosition(),ai);
+                closed=true;
             }else if(this.position[1]=="X" && this.position[2]=="X" && this.position[0]==" "){
                 ai.setPosition(0);
                 setPosition(ai.getPosition(),ai);
@@ -187,11 +193,19 @@ public class Logic extends TicTacToe {
             }else if(this.position[2]=="X" && this.position[6]=="X" && this.position[4]==" "){
                 ai.setPosition(4);
                 setPosition(ai.getPosition(),ai);
-            }else if(fillEmptyLastSpace()!=0){
-                ai.setPosition(fillEmptyLastSpace());
+            }//else if(fillEmptyLastSpace()!=0){
+               // ai.setPosition(fillEmptyLastSpace());
+                //setPosition(ai.getPosition(),ai);
+                //}
+            else{
+                do{
+                ai.setPosition(ai.setPositionFirstTime());
                 setPosition(ai.getPosition(),ai);
+               // System.out.println("No if statment was true");
+            }while(isOpen!=true);
+
             }
-            //END
+
         }
     //
 

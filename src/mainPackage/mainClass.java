@@ -42,15 +42,16 @@ public static void inGamePlayer1(Player p1,Logic logic){
 
     public static void inGameAi(AiPlayer aiPlayer,Logic logic,Player p1){
     //do{
+
         System.out.println(aiPlayer.getName());
         if(aiPlayer.getIsFirstTime()==true && logic.getIsOpen()==true ){
             aiPlayer.setPosition(aiPlayer.setPositionFirstTime());
             logic.setPosition(aiPlayer.getPosition(), aiPlayer);
             logic.display();
-        }
-            logic.blockWinForPlayer(p1,aiPlayer);
+        }else {
+            logic.blockWinForPlayer(p1, aiPlayer);
             logic.display();
-
+        }
 
     System.out.println("The computer is playing ....");
 
