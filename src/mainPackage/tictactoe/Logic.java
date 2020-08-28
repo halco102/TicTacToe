@@ -3,7 +3,10 @@ package mainPackage.tictactoe;
 import mainPackage.player.AiPlayer;
 import mainPackage.player.Player;
 
-public class Logic extends TicTacToe {
+public class Logic extends TicTacToe { //In sake of testing Inheritance i didnt follow IS-A relationship
+
+
+
 
     private boolean isOpen;
     private boolean closeGame;
